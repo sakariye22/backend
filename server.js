@@ -1,13 +1,12 @@
 const express = require ('express');
 const mongoose = require ('mongoose');
+const router = require('./routes/simple.js')
 const app = express();
 app.use(express.json());
 require('dotenv').config();
 
 
-app.get('/home', (req, res) => {
-    res.json('home');
-  });
+app.use('/home', router);
 
 
   mongoose.connect(
