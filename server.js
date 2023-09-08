@@ -1,12 +1,13 @@
 const express = require ('express');
 const mongoose = require ('mongoose');
 const router = require('./routes/simple.js')
+const Gun = require('gun');
 const app = express();
 app.use(express.json());
 require('dotenv').config();
 
 
-app.use('/home', router);
+app.use('/', router);
 
 
   mongoose.connect(
@@ -19,6 +20,11 @@ app.use('/home', router);
     console.log('connected to DB')
 
   );
+  const gun = new Gun({
+    file: 'new-data.json', 
+  });
+
+  app.use(Gun.serve);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
