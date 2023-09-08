@@ -5,6 +5,7 @@ const Gun = require('gun');
 const app = express();
 app.use(express.json());
 require('dotenv').config();
+const path = require('path'); 
 
 
 app.use('/', router);
@@ -20,9 +21,13 @@ app.use('/', router);
     console.log('connected to DB')
 
   );
+  const dataPath = require('./gun-data/new-data.json');
+  const filePath = path.join(__dirname, 'new-data.json');
+  
   const gun = new Gun({
-    file: 'new-data.json', 
+    file: filePath,
   });
+  
 
   app.use(Gun.serve);
 
