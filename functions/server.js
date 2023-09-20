@@ -5,20 +5,18 @@ const cors = require('cors');
 app.use(express.json());
 app.use(cors());
 
- const getAll3 = async (req, res) => {
-  try {
-    const result1 = { "firstName": "jack" };
-    const result2 = { "lastName": "Doe" };
+app.get('/data/:id', (req, res) => {
+  const id = parseInt(req.params.id);
+  const entry = data.find(item => item.id === id);
 
-    const jsonArray = [result1, result2];
-
-    res.json(jsonArray);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Internal Server Error' });
+  if (!entry) {
+    return res.status(404).json({ error: 'Entry not found' });
   }
-};
 
-app.get('/', getAll3);
+  res.json(entry);
+});
+
+
+
 
 module.exports = app;
