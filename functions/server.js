@@ -30,6 +30,9 @@ const data = [
 ];
 
 
+ 
+
+
 app.get('/data', (req, res) => {
   res.json(data);
 });
@@ -45,6 +48,33 @@ app.get('/data/:id', (req, res) => {
   res.json(entry);
 });
 
+
+
+function validateRequiredFields(req, res, next) {
+  const requiredFields = ['id', 'firstName', 'lastName', 'image', 'imageUrl'];
+
+  for (const field of requiredFields) {
+    if (!(field in req.body)) {
+      return res.status(400).json({ error: `${field} is required` });
+    }
+  }
+
+  next(); 
+}
+
+app.post('/data', validateRequiredFields, (req, res) => {
+  try {
+    const newData = req.body; 
+
+    data.push(newData);
+
+
+    res.status(201).json(newData);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
 
 
 
