@@ -42,6 +42,15 @@ router.post('/:id/reviews', (req, res) => {
   res.status(201).json(newReview);
 });
 
+router.get('/:characterId/reviews', (req, res) => {
+  const characterId = parseInt(req.params.characterId);
+
+  // Filter reviews to find those matching the characterId
+  const characterReviews = reviews.filter((review) => review.characterId === characterId);
+
+  res.json(characterReviews);
+});
+
 // Hämta en specifik recension för en karaktär med ett specifikt ID
 router.get('/:characterId/reviews/:reviewId', (req, res) => {
   const characterId = parseInt(req.params.characterId);
