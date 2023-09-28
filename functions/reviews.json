@@ -1,1 +1,44 @@
-[{"id":1,"characterId":3,"username":"john_doe","text":"This character is awesome!","rating":9},{"id":2,"characterId":3,"username":"ahmed","text":"This character is dubm","rating":9}]
+[
+  {
+    "id": 2,
+    "characterId": 6,
+    "username": "hej",
+    "text": "fgdsfd fff",
+    "rating": 88
+  },
+  {
+    "id": 3,
+    "characterId": 9,
+    "username": "hej",
+    "text": "heeje fff",
+    "rating": 66
+  },
+  {
+    "id": 4,
+    "characterId": 30,
+    "username": "hej",
+    "text": "heeje fff",
+    "rating": 66
+  },
+  {
+    "id": 5,
+    "characterId": 15,
+    "username": "AHMED",
+    "text": "DFS fff",
+    "rating": 100
+  },
+  {
+    "id": 6,
+    "characterId": 12,
+    "username": "LIBAN",
+    "text": "DFS fff",
+    "rating": 100
+  },
+  {
+    "id": 7,
+    "characterId": 17,
+    "username": "YONAS",
+    "text": "FDSF FDS",
+    "rating": 55
+  }
+]
